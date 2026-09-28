@@ -166,6 +166,7 @@
     datumISO: "2026-09-12",
     ort:   "Bad Doberan",
     einleitung: "Kein großer Saal. Keine lange Gästeliste. Nur wir zwei, ein Standesamt voller Licht, die Ostsee – und ein <em>Ja</em>, das für immer gilt.",
+    titelbildHandy: 49,     // Hochformat-Titelbild für Handys (gleiche Szene wie 01)
     anzahlFotos: 53,        // fotos/01.jpg … fotos/53.jpg (01 = Titelbild)
     endung: "jpg",
     // Kapitel: Fotos von–bis, dazu ein großes Zwischenbild mit Satz
@@ -187,7 +188,7 @@
 </div>
 
 <header class="hero">
-  <img id="heroImg" alt="" fetchpriority="high">
+  <picture><source id="heroPortrait" media="(max-aspect-ratio: 3/4)"><img id="heroImg" alt="" fetchpriority="high"></picture>
   <div class="hero-text">
     <p class="kicker">Wir haben geheiratet</p>
     <h1 class="names"><span class="w"><span id="n1"></span></span> <span class="w"><span class="amp">&amp;</span></span> <span class="w"><span id="n2"></span></span></h1>
@@ -259,6 +260,7 @@
   hero.onload = () => setTimeout(lift, reduced ? 0 : 1900);
   hero.onerror = lift;
   setTimeout(lift, 4500);
+  if (C.titelbildHandy) $("heroPortrait").srcset = src(C.titelbildHandy);
   hero.src = src(1);
   if (reduced) lift();
 
