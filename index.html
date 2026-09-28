@@ -68,6 +68,7 @@
   .names .amp{font-style:italic;color:var(--gold-hi);font-size:.62em;padding:0 .12em}
   .meta{font-size:clamp(.9rem,1.4vw,1.05rem);letter-spacing:.18em;text-transform:uppercase;opacity:0}
   .meta .dot{color:var(--gold);padding:0 .6em}
+  .meta .nw{white-space:nowrap}
   .ready .kicker{animation:rise 1.2s .5s ease forwards}
   .ready .names .w span{animation:up 1.4s var(--ease) forwards}
   .ready .names .w:nth-child(1) span{animation-delay:.7s}
@@ -233,7 +234,7 @@
   document.title = `${C.name1} & ${C.name2} ${C.familienname}`;
   $("n1").textContent = C.name1;
   $("n2").textContent = C.name2;
-  $("meta").innerHTML = `${C.datum}<span class="dot">·</span>${C.ort}`;
+  $("meta").innerHTML = `<span class="nw">${C.datum}</span><span class="dot">·</span><span class="nw">${C.ort}</span>`;
   $("mono").innerHTML = `${C.name1[0]}<i>&amp;</i>${C.name2[0]}`;
   const [y, m, d] = C.datumISO.split("-");
   $("curtainDate").textContent = `${d} · ${m} · ${y}`;
